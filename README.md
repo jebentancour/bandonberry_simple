@@ -9,7 +9,7 @@ Reiniciar con ``sudo reboot`` para que se realicen los cambios.
 
 Descargar este repositorio con el comando ``git clone https://github.com/jebentancour/bandonberry_simple.git``.
 
-Ir a la carpeta descargada ``cd bandonberry_simple`` y correr el programa de test de las botoneras ``python test_botoneras.py``.
+Ir a la carpeta descargada ``cd bandonberry_simple`` y correr el programa de test de las botoneras ``python botoneras.py``.
 
 Presionar los botones y observar la salida de texto.
 Presionar ctrl-c para salir del programa.
