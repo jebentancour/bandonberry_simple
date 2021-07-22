@@ -184,12 +184,10 @@ try:
                             note = left_notes_matrix[current_col][current_row]
                             midi_out.send_message([NOTE_OFF | 0x02, note[0], LEFT_VELOCITY])
                             midi_out.send_message([NOTE_OFF | 0x03, note[1], LEFT_VELOCITY])
-                            print 'left_OFF [{0}][{1}] {2}'.format(current_col, current_row, note)
                         else:
                             note = left_notes_matrix[current_col][current_row]
                             #midi_out.send_message([NOTE_ON | 0x02, note[0], LEFT_VELOCITY])
                             #midi_out.send_message([NOTE_ON | 0x03, note[1], LEFT_VELOCITY])
-                            print 'left_ON [{0}][{1}] {2}'.format(current_col, current_row, note)
             if right_prev_data[current_col] != right_new_data[current_col]:
                 for current_row in range(ROWS):
                     new_bit = (right_new_data[current_col] >> current_row) & 0x01
@@ -199,12 +197,10 @@ try:
                             note = right_notes_matrix[current_col][current_row]
                             midi_out.send_message([NOTE_OFF | 0x00, note[0], RIGHT_VELOCITY])
                             midi_out.send_message([NOTE_OFF | 0x01, note[1], RIGHT_VELOCITY])
-                            print 'right_OFF [{0}][{1}] {2}'.format(current_col, current_row, note)
                         else:
                             note = right_notes_matrix[current_col][current_row]
                             midi_out.send_message([NOTE_ON | 0x00, note[0], RIGHT_VELOCITY])
                             midi_out.send_message([NOTE_ON | 0x01, note[1], RIGHT_VELOCITY])
-                            print 'right_ON [{0}][{1}] {2}'.format(current_col, current_row, note)
 
         left_prev_data = left_new_data
         right_prev_data = right_new_data
