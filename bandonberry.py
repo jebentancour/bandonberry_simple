@@ -123,10 +123,10 @@ try:
                     midi_out.send_message([NOTE_OFF, note, 127])
 
     # Configuracion de canales MIDI
-    midi_out.send_message([CONTROL | 0x00, VOLUME, 0x00]) # Mano derecha abriendo
-    midi_out.send_message([CONTROL | 0x01, VOLUME, 0x00]) # Mano derecha cerrando
-    midi_out.send_message([CONTROL | 0x02, VOLUME, 0x00]) # Mano izquierda abriendo
-    midi_out.send_message([CONTROL | 0x03, VOLUME, 0x00]) # Mano izquierda cerrando
+    midi_out.send_message([CONTROL | 0x00, VOLUME, 0]) # Mano derecha abriendo
+    midi_out.send_message([CONTROL | 0x01, VOLUME, 0]) # Mano derecha cerrando
+    midi_out.send_message([CONTROL | 0x02, VOLUME, 0]) # Mano izquierda abriendo
+    midi_out.send_message([CONTROL | 0x03, VOLUME, 0]) # Mano izquierda cerrando
 
     midi_out.send_message([CONTROL | 0x00, BALANCE, RIGHT])
     midi_out.send_message([CONTROL | 0x01, BALANCE, RIGHT])
@@ -186,8 +186,8 @@ try:
                             midi_out.send_message([NOTE_OFF | 0x03, note[1], LEFT_VELOCITY])
                         else:
                             note = left_notes_matrix[current_col][current_row]
-                            #midi_out.send_message([NOTE_ON | 0x02, note[0], LEFT_VELOCITY])
-                            #midi_out.send_message([NOTE_ON | 0x03, note[1], LEFT_VELOCITY])
+                            midi_out.send_message([NOTE_ON | 0x02, note[0], LEFT_VELOCITY])
+                            midi_out.send_message([NOTE_ON | 0x03, note[1], LEFT_VELOCITY])
             if right_prev_data[current_col] != right_new_data[current_col]:
                 for current_row in range(ROWS):
                     new_bit = (right_new_data[current_col] >> current_row) & 0x01
@@ -210,13 +210,13 @@ try:
         if is_pressed != was_pressed:
             if is_pressed:
                 midi_out.send_message([CONTROL | 0x00, VOLUME, 127]) # Mano derecha abriendo
-                midi_out.send_message([CONTROL | 0x01, VOLUME, 000]) # Mano derecha cerrando
+                midi_out.send_message([CONTROL | 0x01, VOLUME, 0]) # Mano derecha cerrando
                 midi_out.send_message([CONTROL | 0x02, VOLUME, 127]) # Mano izquierda abriendo
-                midi_out.send_message([CONTROL | 0x03, VOLUME, 000]) # Mano izquierda cerrando
+                midi_out.send_message([CONTROL | 0x03, VOLUME, 0]) # Mano izquierda cerrando
             else:
-                midi_out.send_message([CONTROL | 0x00, VOLUME, 000]) # Mano derecha abriendo
+                midi_out.send_message([CONTROL | 0x00, VOLUME, 0]) # Mano derecha abriendo
                 midi_out.send_message([CONTROL | 0x01, VOLUME, 127]) # Mano derecha cerrando
-                midi_out.send_message([CONTROL | 0x02, VOLUME, 000]) # Mano izquierda abriendo
+                midi_out.send_message([CONTROL | 0x02, VOLUME, 0]) # Mano izquierda abriendo
                 midi_out.send_message([CONTROL | 0x03, VOLUME, 127]) # Mano izquierda cerrando
 
         was_pressed = is_pressed
