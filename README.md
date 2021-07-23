@@ -3,7 +3,7 @@
 Habiliar la interfaz SPI con el comando ``sudo raspi-config``.
 
 Ir a Interfacing Options, seleccionar SPI.
-Responder YES cuando pregunte si queremos habilitar SPI y listo.
+Responder YES cuando pregunte si queremos habilitar SPI.
 
 Reiniciar con ``sudo reboot`` para que se realicen los cambios.
 
@@ -29,12 +29,6 @@ Abrir el sintetizador y dejarlo corriendo en segundo plano.
 
 ```
 sudo fluidsynth -i -s -a alsa -g 3 -c 2 -z 64 /home/pi/bandonberry_simple/bandoneon_v2.sf2 &
-```
-
-Probar que se puedan mandar notas desde python a fluidsynth.
-
-```
-python send_midi_test.py
 ```
 
 Correr el programa principal del bandonberry.
