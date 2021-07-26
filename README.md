@@ -43,3 +43,23 @@ Para que los programas necesarios sean iniciados automáticamente se deben agreg
 sudo fluidsynth -i -s -a alsa -o audio.alsa.device=hw:1 -g 3 -c 4 -z 64 /home/pi/bandonberry_simple/bandoneon_v2.sf2 &
 python /home/pi/bandonberry_simple/bandonberry.py &
 ```
+
+El mecanismo de apagado es el de [RaspiATX](https://github.com/LowPowerLab/ATX-Raspi).
+
+Un script que corre en la raspberry monitorea el estado de un pin para enviar una señal de apagado en el sistema cuando se detecta un cambio en su estado. Una señal es enviada por otro pin para indicar el correcto booteo del sistema. Solo utilizamos los scripts provistos e implementamos en el BMS la funcionalidad del manejo de la energía.
+
+Se copia el script de instalación: 
+```
+sudo wget https://raw.githubusercontent.com/LowPowerLab/ATX-Raspi/master/shutdownchecksetup.sh
+```
+Se editan los pines a usar ```sudo nano shutdownchecksetup.sh```:
+```Python
+SHUTDOWN = 12     # GPIO used for shutdown signal
+BOOT = 16         # GPIO used for boot signal
+```
+Se instala eligiendo la opción 1:
+```
+sudo bash shutdownchecksetup.sh
+sudo rm shutdownchecksetup.sh
+sudo reboot
+```
