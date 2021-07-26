@@ -28,7 +28,7 @@ sudo pip install gpiozero
 Abrir el sintetizador y dejarlo corriendo en segundo plano.
 
 ```
-sudo fluidsynth -i -s -a alsa -g 3 -c 2 -z 64 /home/pi/bandonberry_simple/bandoneon_v2.sf2 &
+sudo fluidsynth -i -s -a alsa -o audio.alsa.device=hw:1 -g 3 -c 4 -z 64 /home/pi/bandonberry_simple/bandoneon_v2.sf2 &
 ```
 
 Correr el programa principal del bandonberry.
