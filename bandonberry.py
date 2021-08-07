@@ -68,7 +68,7 @@ right_notes_matrix[4][4] = [61, 60]
 right_notes_matrix[5][0] = [92, 92]
 right_notes_matrix[5][1] = [91, 90]
 right_notes_matrix[5][2] = [89, 89]
-right_notes_matrix[5][3] = [94, 93]
+right_notes_matrix[5][3] = [95, 93]
 
 left_notes_matrix = [[[0, 0] for x in range(ROWS)] for y in range(COLUMS)]
 # Mano Izquierda
