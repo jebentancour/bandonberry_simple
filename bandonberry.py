@@ -31,7 +31,7 @@ DEBOUNCE_DELAY = 0.001
 right_notes_matrix = [[[0, 0] for x in range(ROWS)] for y in range(COLUMS)]
 # Mano Derecha
 # 0 = Abriendo, 1 = Cerrando
-right_notes_matrix[0][0] = [81, 80]
+right_notes_matrix[0][0] = [81, 83]
 right_notes_matrix[0][1] = [85, 88]
 right_notes_matrix[0][2] = [79, 75]
 right_notes_matrix[0][3] = [78, 80]
